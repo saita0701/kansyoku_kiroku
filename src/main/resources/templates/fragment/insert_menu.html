@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>間食記録アプリ</title>
+</head>
+<body>
+
+<th:block th:fragment="insert_menu">
+	<div id="insertMenuForm" style="display:none;">
+		<form method="post">
+			<div class="formContents">
+				<input type="text" name="menuName" placeholder="商品名">
+				<input type="text" name="price" placeholder="値段">
+				<input type="text" name="kcal" placeholder="キロカロリー">
+				<input type="text" name="shop" placeholder="店名（任意）">
+				<input type="text" name="memo" placeholder="メモ（任意）">
+				<button id ="insertBtn">追加</button>
+				<button id="closeBtn">閉じる</button>
+			</div>
+		</form>
+		
+	</div>
+	<script>
+		$(() => {
+			$('#closeBtn').on('click',() => {
+				$('#insertForm').fadeOut();
+			});
+			$('#insertBtn').on('click',() => {
+				let jsonString = {
+					'menuName': $('#insertMenuForm input[name = menuName]').val(),
+					'price': $('#insertMenuForm input[name = price]').val(),
+					'kcal': $('#insertMenuForm input[name = kcal]').val(),
+					'shop': $('#insertMenuForm input[name = shop]').val(),
+					'memo': $('#insertMenuForm input[name = memo]').val()
+				};
+				$.ajax({
+					type:'POST',
+					url: '/kansyoku_kiroku/menu/insert',
+					data: JSON.stringify(jsonString),
+					contentType: 'application/json',
+					dataType: 'json',
+					scriptCharset:'utf-8'
+				})
+			});
+		});
+	</script>
+</th:block>
+</body>
+</html>

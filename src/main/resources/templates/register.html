@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+<title>間食記録アプリ</title>
+
+</head>
+<body>
+	<div th:insert="fragment/header :: header"></div>
+
+	<form id="registerForm" method="post">
+		<div class="formContents">
+			<h2>新規登録</h2>
+			<div class="userName">
+				<label>ユーザー名 : </label>
+				<input type="text" name="userName" placeholder="ログイン時に表示される名前です" size="40" maxlength="40" required>
+			</div>
+			<div class="mail">
+				<label>メールアドレス : </label>
+				<input type="text" name="email" placeholder="お使いの端末のメールアドレスを記入してください" size="40" required>
+			</div>
+			<div class="password">
+				<label>パスワード : </label>
+				<input type="password" name="password" placeholder="半角英数字６文字以上１６文字以内" size="40" maxlength="16" required>
+			</div>
+			<button type="submit" id="submitBtn">登録</button>
+		</div>
+	</form>
+	<script>
+		$(() => {
+			$('#registerForm').on('submit',() => {
+				let jsonString = {
+				'userName': $('form#registerForm input[name = userName]').val(),
+				'email': $('form#registerForm input[name = email]').val(),
+				'password': $('form#registerForm input[name = password]').val()
+				};
+				$.ajax({
+					type:'POST',
+					url:'/kansyoku_kiroku/register/submit',
+					data: JSON.stringify(jsonString),
+					contentType: 'application/json',
+					dataType: 'json',
+					scriptCharset: 'utf-8'
+				})
+				.then((result) => {
+					location.replace('/kansyoku_kiroku/');
+					alert(`新規ユーザーの登録が完了しました!`);
+				}, () => {
+					alert('Error: ajax connection failed.');
+				});
+			});
+		});
+	</script>
+</body>
+</html>

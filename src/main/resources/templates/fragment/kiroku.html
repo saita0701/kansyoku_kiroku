@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>間食記録アプリ</title>
+</head>
+<body>
+<th:block th:fragment="kiroku">
+	<div id="kiroku">
+		<div class="today" th:text="${today}"></div>
+		<input type="hidden" name="dbDate" th:value="${dbDate}" />
+		<table id="todayMenu">
+			<thead>
+				<tr>
+					<th>商品名</th><th>値段(円)</th><th>キロカロリー(kcal)</th><th>販売店</th><th>メモ</th>
+				</tr>
+			</thead>
+			<tbody>
+			<!-- 本日中に追加されたメニューのみを繰り返し表示 -->
+				<tr th:each="todayMenu: ${todayMenus}">
+					<td th:text="${todayMenu.menuName}" />
+					<td th:text="${todayMenu.price}" />
+					<td th:text="${todayMenu.kcal}" />
+					<td th:text="${todayMenu.shop}" />
+					<td th:text="${todayMenu.memo}" />
+					<td class ="delete" style="display:none;"><button id="deleteBtn" th:attr="data-value=${todayMenu.menuId}">削除</button></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table id="todaySum">
+			<tr>
+				<td>間食の消費金額(円)</td><td class="sumTodayPrice" th:text="${sumTodayPrice}"></td>
+			</tr>
+			<tr>
+				<td>間食の摂取キロカロリー(kcal)</td><td class="sumTodayKcal" th:text="${sumTodayKcal}"></td>
+			</tr>
+		</table>
+		<button id="insertMenuBtn">商品を追加</button>
+		<button id="historyInsertBtn">履歴から追加</button>
+		<button id="deleteMenuBtn">メニューを削除する</button>
+		<table id="historyMenuTable" style="display:none">
+			<thead>
+				<tr>
+					<th>商品名</th><th>値段(円)</th><th>キロカロリー(kcal)</th><th>販売店</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="menuHistory: ${menuHistories}" th:attr="data-value=${menuHistory.menuId}">
+					<td th:text="${menuHistory.menuName}" />
+					<td th:text="${menuHistory.price}" />
+					<td th:text="${menuHistory.kcal}" />
+					<td th:text="${menuHistory.shop}" />
+				</tr>
+			</tbody>
+		</table>
+		<div id="insertMenuDialog" th:insert="fragment/insert_menu :: insert_menu"></div>
+		
+	</div>
+	<script>
+		$(() => {
+			
+			$('#insertMenuBtn').on('click', () => {
+				$('#insertMenuForm').fadeIn();
+			});
+			
+			$('#historyInsertBtn').on('click', () => {
+				$('#historyMenuTable').fadeIn();
+			});
+			
+			$('#deleteMenuBtn').on('click', () => {
+				$('.delete').fadeIn();
+			})
+	
+			$('#historyMenuTable tr').click((event) => {
+				let jsonString = {
+						'menuId': $(event.currentTarget).data('value')
+				};
+				$.ajax({
+					type:'POST',
+					url:'/kansyoku_kiroku/menu/insertMenuHistory',
+					data: JSON.stringify(jsonString),
+					contentType: 'application/json',
+					dataType: 'json',
+					scriptCharset: 'utf-8'
+				})
+				.then((result) => {
+					window.location.reload();
+				}, () => {
+					alert('Error: ajax connection failed.');
+				});
+			});
+			
+			$('#deleteBtn').click((event) => {
+				let jsonString = {
+						'menuId' : $(event.currentTarget).data('value')
+				};
+				$.ajax({
+					type: 'POST',
+					url: '/kansyoku_kiroku/menu/delete',
+					data: JSON.stringify(jsonString),
+					datatype: 'json',
+					contentType: 'application/json'
+				})
+				.then((result) => {
+					window.location.reload();
+				}, () => {
+					alert('Error: ajax connection failed.');
+				});
+			});
+		});
+	</script>
+</th:block>
+</body>
+</html>

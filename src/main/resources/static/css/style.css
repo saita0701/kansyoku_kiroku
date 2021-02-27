@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+main{
+	width:100%;
+}
+
+#headerTop{
+	background-color: lightgreen;
+	width:100%;
+	height:60px;
+}
+.logo{
+	font-size:40px;
+	float:left;
+	font-family:cursive;
+}
+.logo a{
+	text-decoration:none;
+}
+#transRegister{
+	float:right;
+	margin-top:35px;
+}
+#headerBottom{
+	clear:both;
+	background-color: #EEEEEE;
+	width:100%;
+	height:30px;
+}
+.loginForm{
+	float:right;
+	line-height:30px;
+}
+.logined{
+	float:right;
+	line-height:30px;
+}
+span{
+	margin-right:20px;
+}
+.introduce{
+	text-align:center;
+	font-size:16px;
+	line-height:3em;
+}
+h1{
+	border-bottom:1px solid black;
+}
+
+#registerForm{
+	margin:0 auto;
+	border:lightgray solid 2px;
+	width:600px;
+	background-color:white;
+	border-radius:10px;
+	margin-top:40px;
+	margin-bottom:40px;
+	box-shadow:4px 4px 4px lightgray;
+}
+.formContents{
+	margin-top:30px;
+	margin-left:25px;
+	margin-right:25px;
+	margin-bottom:30px;
+}
+.formContents h2{
+	text-align:center;
+	border-bottom:solid 1px #31A263;
+	font-size:20px;
+}
+.userName, .mail, .password{
+	text-align:left;
+	margin:25px;
+}
+label{
+	display:inline-block;
+	font-size:13px;
+}
+#submitBtn{
+	margin-left:200px;
+	border:1px solid lightgray;
+	padding: 6px 60px 4px 60px;
+	border-radius: 5px;
+	margin-bottom:20px;
+}
+
+table#todayMenu{
+	margin:20px;
+	border-collapse:collapse;
+	margin-left:auto;
+	margin-right:auto;
+}
+table#todaySum{
+	margin:20px;
+	border-collapse:collapse;
+	margin-left:auto;
+	margin-right:auto;
+}
+table#historyMenuTable{
+	width:50%;
+	border-collapse:collapse;
+	margin-top:30px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#historyMenuTable tr:hover{
+	background: #eee;
+}
+table td,table th{
+	border:1px solid gray;
+	padding:5px;
+}
+th{
+	background:lightgreen;
+	color:white;
+}
+
+#kiroku{
+	text-align:center;
+}
+.today{
+	margin-top:30px;
+	font-size:50px;
+	font-family:sans-serif;
+	border-bottom: 2px dotted lightgreen;
+}
+#insertMenuBtn, #historyInsertBtn, #deleteMenuBtn{
+	padding:5px;
+	background-color:green;
+	color:white;
+	border-radius:5px;
+	margin-right:5px;
+	margin-left:5px;
+	font-size:18px;
+}
+#insertMenuForm{
+	margin:0 auto;
+	border:lightgray solid 2px;
+	width:600px;
+	background-color:white;
+	border-radius:10px;
+	margin-top:40px;
+	margin-bottom:40px;
+	box-shadow:4px 4px 4px lightgray;
+}

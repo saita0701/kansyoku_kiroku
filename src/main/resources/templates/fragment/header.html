@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>間食記録アプリ</title>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<div th:fragment="header">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<script src="/js/script.js" th:src="@{/js/script.js}"></script>
+		<div id="headerTop">
+			<div class="logo"><a href="/kansyoku_kiroku/">Kansyoku Kiroku App</a></div>
+			<div id="transRegister"><a href="register/">新規登録はコチラから</a></div>
+		</div>
+		<div id="headerBottom">
+			<div class="loginForm" th:if="${loginSession == null || loginSession.getUserName() == null}">
+				<input type="text" name="userName" placeholder = "ユーザー名" />
+				<input type="password" name="password" placeholder = "パスワード"/>
+				<button id="login">ログイン</button>
+			</div>
+			<div class="logined" th:unless="${loginSession == null || loginSession.getUserName() == null}">
+				<span th:text="|${loginSession.getUserName()}の間食記録|"></span>
+				<button id="logout">ログアウト</button>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

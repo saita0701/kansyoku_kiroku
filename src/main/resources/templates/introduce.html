@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+<title>間食記録アプリ</title>
+</head>
+<body>
+	<div th:insert="fragment/header :: header"></div>
+	<div class="introduce">
+		<h1>間食記録アプリとは</h1>
+		<p>
+		日々の生活の中で、外食やカフェなどで使っているお金と摂取カロリーを同時に記録できるアプリがあればと思いました。
+		</p>
+		<p>
+		しかし、巷に出回っている家計簿アプリ、ダイエットアプリは便利ではあるものの、
+		<p>
+		消費金額やを記録するだけの簡素なものや、ダイエットアプリとして敷居の高そうなものまであり、その中間は見つからず...
+		</p>
+		<p>
+		間食に使っている金額と摂取カロリーをサクっと記録＆計算したい！そんな想いからこのアプリを制作しました。
+		</p>
+		<p>
+		ヘッダーからログインするとあなたの間食記録が表示されます！
+		</p>
+		新規ユーザーの登録は<a href="register/">コチラ</a>から
+	</div>
+</body>
+</html>
