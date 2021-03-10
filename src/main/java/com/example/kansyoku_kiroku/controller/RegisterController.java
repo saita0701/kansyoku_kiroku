@@ -12,7 +12,7 @@ import com.example.kansyoku_kiroku.model.mapper.UserMapper;
 import com.google.gson.Gson;
 
 @Controller
-@RequestMapping("/kansyoku_kiroku/register")
+@RequestMapping("kansyoku-kiroku.herokuapp.com/register")
 public class RegisterController {
 	
 	@Autowired

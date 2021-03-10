@@ -6,7 +6,7 @@ $(() => {
 		};
 		$.ajax({
 			type: 'POST',
-			url: '/kansyoku_kiroku/auth/login',
+			url: 'kansyoku-kiroku.herokuapp.com/auth/login',
 			data: JSON.stringify(jsonString),
 			contentType: 'application/json',
 			datatype: 'json',
@@ -20,7 +20,7 @@ $(() => {
 			} else {
 				$('#hiddenUserName').val(user['userName']);
 				login(user);
-				location.replace('/kansyoku_kiroku/');
+				location.replace('/kansyoku-kiroku/');
 			}
 		}, () => {
 			alert('Error: ajax connection failed.');
@@ -30,14 +30,14 @@ $(() => {
 	$('button#logout').on('click',() => {
 		$.ajax({
 			type:'POST',
-			url:'/kansyoku_kiroku/auth/logout',
+			url:'kansyoku-kiroku.herokuapp.com/auth/logout',
 			datatype: 'json',
 			scriptCharset: 'utf-8'
 		})
 		.then(() => {
 			$('#hiddenUserName').val('');
 			logout();
-			location.replace('/kansyoku_kiroku/');
+			location.replace('/kansyoku-kiroku/');
 			alert('ログアウトしました。');
 		}, () => {
 			alert('Error: ajax connection failed.');

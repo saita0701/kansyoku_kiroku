@@ -12,7 +12,7 @@ import com.example.kansyoku_kiroku.model.session.LoginSession;
 import com.google.gson.Gson;
 
 @RestController
-@RequestMapping("/kansyoku_kiroku/auth")
+@RequestMapping("kansyoku-kiroku.herokuapp.com/auth")
 public class AuthController {
 	
 	private Gson gson = new Gson();
