@@ -2,7 +2,7 @@ spring:
   thymeleaf:
     cache: false
   datasource:
-    url: jdbc:mysql://localhost:3306/myshop?serverTimezone=JST
+    url: jdbc:mysql://localhost:3306/kansyoku_kiroku?serverTimezone=JST
     username: root
     password: mysql
     
