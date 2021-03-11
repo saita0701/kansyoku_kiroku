@@ -78,7 +78,7 @@
 				};
 				$.ajax({
 					type:'POST',
-					url:'/kansyoku-kiroku/menu/insertMenuHistory',
+					url:'/menu/insertMenuHistory',
 					data: JSON.stringify(jsonString),
 					contentType: 'application/json',
 					dataType: 'json',
@@ -97,7 +97,7 @@
 				};
 				$.ajax({
 					type: 'POST',
-					url: '/kansyoku-kiroku/menu/delete',
+					url: '/menu/delete',
 					data: JSON.stringify(jsonString),
 					datatype: 'json',
 					contentType: 'application/json'
