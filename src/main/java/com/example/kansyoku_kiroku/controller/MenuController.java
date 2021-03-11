@@ -15,7 +15,7 @@ import com.example.kansyoku_kiroku.model.session.LoginSession;
 import com.google.gson.Gson;
 
 
-@RequestMapping("kansyoku-kiroku.herokuapp.com/menu")
+@RequestMapping("/kansyoku-kiroku/menu")
 @RestController
 public class MenuController {
 	

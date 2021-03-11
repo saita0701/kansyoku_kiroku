@@ -6,7 +6,7 @@ $(() => {
 		};
 		$.ajax({
 			type: 'POST',
-			url: 'kansyoku-kiroku.herokuapp.com/auth/login',
+			url: '/kansyoku-kiroku/auth/login',
 			data: JSON.stringify(jsonString),
 			contentType: 'application/json',
 			datatype: 'json',
@@ -30,7 +30,7 @@ $(() => {
 	$('button#logout').on('click',() => {
 		$.ajax({
 			type:'POST',
-			url:'kansyoku-kiroku.herokuapp.com/auth/logout',
+			url:'/kansyoku-kiroku/auth/logout',
 			datatype: 'json',
 			scriptCharset: 'utf-8'
 		})

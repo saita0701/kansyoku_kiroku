@@ -15,7 +15,7 @@ import com.example.kansyoku_kiroku.model.mapper.MenuMapper;
 import com.example.kansyoku_kiroku.model.session.LoginSession;
 
 @Controller
-@RequestMapping("kansyoku-kiroku.herokuapp.com")
+@RequestMapping("/kansyoku-kiroku")
 public class IndexController {
 	
 	@Autowired

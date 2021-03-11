@@ -37,14 +37,14 @@
 				};
 				$.ajax({
 					type:'POST',
-					url:'kansyoku-kiroku.herokuapp.com/register/submit',
+					url:'/kansyoku-kiroku/register/submit',
 					data: JSON.stringify(jsonString),
 					contentType: 'application/json',
 					dataType: 'json',
 					scriptCharset: 'utf-8'
 				})
 				.then((result) => {
-					location.replace('kansyoku-kiroku.herokuapp.com/');
+					location.replace('/kansyoku-kiroku/');
 					alert(`新規ユーザーの登録が完了しました!`);
 				}, () => {
 					alert('Error: ajax connection failed.');
