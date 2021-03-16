@@ -2,9 +2,9 @@ spring:
   thymeleaf:
     cache: false
   datasource:
-    url: jdbc:mysql://us-cdbr-east-03.cleardb.com/heroku_30341e67623ea5a?reconnect=true
-    username: bb0b9228819b47
-    password: 6259abe8
+    url: jdbc:mysql://us-cdbr-east-03.cleardb.com/heroku_1362a8534b10719?reconnect=true
+    username: b7ff565df50cc8
+    password: 8ee382b2
     
 mybatis:
   configuration:
