@@ -28,9 +28,9 @@ public class IndexController {
 	public String index(Model m) {
 		if(loginSession.getPassword() != null) {
 			Date d = new Date();
-			//画面に表示する日付
-			SimpleDateFormat d1 = new SimpleDateFormat("yyyy年MM月dd日");
-			//DBで参照する日付のフォーマット
+	
+			SimpleDateFormat d1 = new SimpleDateFormat("yyyy蟷ｴMM譛�dd譌･");
+			
 			SimpleDateFormat d2 = new SimpleDateFormat("yyyy-MM-dd");
 			String today = d1.format(d);
 			String dbToday = d2.format(d);
@@ -49,14 +49,13 @@ public class IndexController {
 				e.printStackTrace();
 			}
 			
-			//メニュー履歴をModelに詰める
 			List<Menu> menuHistories = menuMapper.findMenuHistory(loginSession.getUserId());
 			m.addAttribute("menuHistories", menuHistories);
 			m.addAttribute("loginSession", loginSession);
 			
 			return "index";
 		}
-		//ログインしていない場合はintroduceへ遷移
+
 		else {
 			return "introduce";
 		}
