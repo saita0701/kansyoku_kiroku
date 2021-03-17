@@ -1,3 +1,6 @@
+tasks.withType(JavaCompile){
+	option.encoding = 'UTF-8'
+}
 
 plugins {
 	id 'org.springframework.boot' version '2.4.0'
