@@ -24,6 +24,7 @@ public class IndexController {
 	@Autowired
 	private MenuMapper menuMapper;
 	
+	@RequestMapping("/")
 	public String index(Model m) {
 		if(loginSession.getPassword() != null) {
 			Date d = new Date();
