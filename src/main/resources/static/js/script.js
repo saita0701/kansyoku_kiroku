@@ -20,6 +20,7 @@ $(() => {
 			} else {
 				$('#hiddenUserName').val(user['userName']);
 				login(user);
+				location.replace('/');
 			}
 		}, () => {
 			alert('Error: ajax connection failed.');
@@ -36,6 +37,7 @@ $(() => {
 		.then(() => {
 			$('#hiddenUserName').val('');
 			logout();
+			location.replace('/');
 			alert('ログアウトしました。');
 		}, () => {
 			alert('Error: ajax connection failed.');
