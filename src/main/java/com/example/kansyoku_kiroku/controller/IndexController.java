@@ -29,12 +29,12 @@ public class IndexController {
 		if(loginSession.getPassword() != null) {
 			Date d = new Date();
 			//画面に表示する日付
-			SimpleDateFormat d1 = new SimpleDateFormat("yyyy年MM月dd日");
+			//SimpleDateFormat d1 = new SimpleDateFormat("yyyy年MM月dd日");
 			//DBで参照する日付のフォーマット
 			SimpleDateFormat d2 = new SimpleDateFormat("yyyy-MM-dd");
-			String today = d1.format(d);
+			//String today = d1.format(d);
 			String dbToday = d2.format(d);
-			m.addAttribute("today", today);
+			//m.addAttribute("today", today);
 			
 			SimpleDateFormat dbDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			try {
