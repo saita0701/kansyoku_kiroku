@@ -11,12 +11,12 @@ import com.example.kansyoku_kiroku.model.domain.User;
 @Mapper
 public interface UserMapper {
 	
-	@Select("SELECT * FROM kansyoku_kiroku.user WHERE user_name = #{userName} AND password = #{password}")
+	@Select("SELECT * FROM user WHERE user_name = #{userName} AND password = #{password}")
 	User findByUserNameAndPassword(
 			@Param("userName") String userName,
 			@Param("password") String password);
 	
-	@Insert("INSERT INTO kansyoku_kiroku.user (user_name, email, password)"+
+	@Insert("INSERT INTO user (user_name, email, password)"+
 			"VALUES (#{userName}, #{email}, #{password})")
 	@Options(useGeneratedKeys=true, keyProperty="userId")
 	int insertUser(User user);
