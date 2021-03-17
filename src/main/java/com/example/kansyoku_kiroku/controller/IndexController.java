@@ -15,6 +15,7 @@ import com.example.kansyoku_kiroku.model.mapper.MenuMapper;
 import com.example.kansyoku_kiroku.model.session.LoginSession;
 
 @Controller
+@RequestMapping("/")
 public class IndexController {
 	
 	@Autowired
@@ -23,7 +24,6 @@ public class IndexController {
 	@Autowired
 	private MenuMapper menuMapper;
 	
-	@RequestMapping("/")
 	public String index(Model m) {
 		if(loginSession.getPassword() != null) {
 			Date d = new Date();
