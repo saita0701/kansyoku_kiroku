@@ -1,4 +1,4 @@
-tasks.withType(JavaCompile){
+task{
 	option.encoding = 'UTF-8'
 }
 
