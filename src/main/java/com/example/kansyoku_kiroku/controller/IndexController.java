@@ -55,7 +55,6 @@ public class IndexController {
 			
 			return "index";
 		}
-
 		else {
 			return "introduce";
 		}
