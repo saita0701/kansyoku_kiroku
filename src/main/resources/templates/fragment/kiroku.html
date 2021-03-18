@@ -77,13 +77,18 @@
 						'menuId': $(event.currentTarget).data('value')
 				};
 				$.ajax({
-					type:'POST',
-					url:'/menu/insertMenuHistory',
+					type: 'POST',
+					url: '/menu/insertMenuHistory',
 					data: JSON.stringify(jsonString),
+					dataType: text,
 					contentType: 'application/json',
-					scriptCharset:'utf-8'
+					scriptCharset: 'utf-8'
 				})
-				window.location.reload();
+				.then((result) => {
+					window.location.reload();
+				}, () => {
+					alert('Error: ajax connection failed.');
+				});
 			});
 			
 			$('.deleteBtn').click((event) => {
@@ -96,7 +101,7 @@
 					data: JSON.stringify(jsonString),
 					dataType: 'json',
 					contentType: 'application/json',
-					scriptCharset:'utf-8'
+					scriptCharset: 'utf-8'
 				})
 				.then((result) => {
 					window.location.reload();
