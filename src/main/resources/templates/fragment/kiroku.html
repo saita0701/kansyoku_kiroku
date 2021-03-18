@@ -84,6 +84,11 @@
 					contentType: 'application/json',
 					scriptCharset:'utf-8'
 				})
+				.then((result) => {
+					window.location.reload();
+				}, () => {
+					window.location.reload();
+				});
 			});
 			
 			$('.deleteBtn').click((event) => {
