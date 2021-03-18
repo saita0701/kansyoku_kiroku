@@ -53,6 +53,7 @@ public class MenuController {
 	}
 	
 	@RequestMapping("/insertMenuHistory")
+	@ResponseBody
 	public String insertMenuHistory(@RequestBody MenuForm f) {
 		Date date = new Date();
 		menuForm.setMenuId(f.getMenuId());
