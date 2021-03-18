@@ -37,5 +37,6 @@ public interface MenuMapper {
 	
 	@Insert("INSERT INTO menu(user_id,menu_name,price,kcal,shop,memo,created_date) SELECT user_id,menu_name,price,kcal,shop,memo,#{date} as created_date "
 			+ "FROM kansyoku_kiroku.menu WHERE user_id = #{userId} AND menu_id = #{menuId} LIMIT 1")
+	@Options(useGeneratedKeys = true, keyProperty="menuId")
 	void insertMenuHistory(@Param("date") Date date,@Param("userId") int userId,@Param("menuId") int menuId);
 }
