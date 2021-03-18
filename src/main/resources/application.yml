@@ -2,7 +2,7 @@ spring:
   thymeleaf:
     cache: false
   datasource:
-    url: jdbc:mysql://us-cdbr-east-03.cleardb.com/heroku_1362a8534b10719?reconnect=true&characterEncoding=UTF-8&characterSetResults=UTF-8
+    url: jdbc:mysql://us-cdbr-east-03.cleardb.com/heroku_1362a8534b10719?reconnect=true&characterEncoding=UTF-8
     username: b7ff565df50cc8
     password: 8ee382b2
     
