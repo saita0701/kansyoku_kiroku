@@ -81,8 +81,7 @@
 					url:'/menu/insertMenuHistory',
 					data: JSON.stringify(jsonString),
 					contentType: 'application/json',
-					dataType: 'json',
-					scriptCharset: 'utf-8'
+					dataType: 'json'
 				})
 				.then((result) => {
 					window.location.reload();
@@ -100,8 +99,7 @@
 					url: '/menu/delete',
 					data: JSON.stringify(jsonString),
 					datatype: 'json',
-					contentType: 'application/json',
-					scriptCharset:'utf-8'
+					contentType: 'application/json'
 				})
 				.then((result) => {
 					window.location.reload();
