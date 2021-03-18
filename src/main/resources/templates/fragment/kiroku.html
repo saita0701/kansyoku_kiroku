@@ -23,7 +23,7 @@
 					<td th:text="${todayMenu.kcal}" />
 					<td th:text="${todayMenu.shop}" />
 					<td th:text="${todayMenu.memo}" />
-					<td class ="delete" style="display:none;"><button id="deleteBtn" th:attr="data-value=${todayMenu.menuId}">削除</button></td>
+					<td class ="delete" style="display:none;"><button class="deleteBtn" th:attr="data-value=${todayMenu.menuId}">削除</button></td>
 				</tr>
 			</tbody>
 		</table>
@@ -91,7 +91,7 @@
 				});
 			});
 			
-			$('#deleteBtn').click((event) => {
+			$('.deleteBtn').click((event) => {
 				let jsonString = {
 						'menuId' : $(event.currentTarget).data('value')
 				};
