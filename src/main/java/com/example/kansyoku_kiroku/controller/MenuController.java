@@ -32,7 +32,7 @@ public class MenuController {
 	
 	@RequestMapping("/insert")
 	@ResponseBody
-	public void registerMenu(@RequestBody MenuForm f) {
+	public String registerMenu(@RequestBody MenuForm f) {
 		
 		if(loginSession.getUserId() > 0) {
 			Menu menu = new Menu(f);
@@ -43,6 +43,7 @@ public class MenuController {
 			
 			menuMapper.insertMenu(menu);
 		}
+		return gson.toJson(f);
 	}
 	
 	@RequestMapping("/delete")
